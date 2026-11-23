@@ -273,6 +273,11 @@ chips.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)retu
 $('sort').addEventListener('change',e=>{st.sort=e.target.value;render()});
 let qt;$('q').addEventListener('input',e=>{clearTimeout(qt);qt=setTimeout(()=>{st.q=e.target.value;render()},120)});
 $('bagBtn').addEventListener('click',()=>openBag(true));
+$('send').addEventListener('click',()=>{
+ if(!Object.keys(cart).length)return;
+ // deja que el enlace abra WhatsApp y luego vacía el carrito
+ setTimeout(()=>{cart={};save();render();renderBag();openBag(false);toast('¡Pedido enviado! Te responderemos por WhatsApp.')},400);
+});
 $('close').addEventListener('click',()=>openBag(false));
 $('scrim').addEventListener('click',()=>openBag(false));
 document.addEventListener('keydown',e=>{if(e.key==='Escape')openBag(false)});
