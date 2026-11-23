@@ -34,6 +34,42 @@ header{background:var(--or);color:#fff;position:sticky;top:0;z-index:20;box-shad
 .search svg{position:absolute;left:14px;top:13px;width:20px;height:20px;stroke:#a05a3c}
 .bagbtn{flex:none;height:46px;border-radius:23px;border:0;background:var(--choc);color:#fff;padding:0 16px;display:flex;align-items:center;gap:8px;cursor:pointer;font-weight:600}
 .bagbtn b{background:#fff;color:var(--choc);border-radius:12px;min-width:24px;height:24px;display:grid;place-items:center;font-size:13px;padding:0 6px}
+.userbtn{flex:none;height:46px;border-radius:23px;border:2px solid #fff;background:transparent;color:#fff;padding:0 16px;display:flex;align-items:center;gap:8px;cursor:pointer;font-weight:600}
+.userbtn i{font-style:normal;width:28px;height:28px;border-radius:50%;background:#fff;color:var(--or);display:grid;place-items:center;font-weight:800}
+.userbtn.in{padding:0 14px 0 8px}
+.acc{padding:18px;overflow-y:auto;flex:1}.acc>*{margin:0 0 16px!important}.acc>*:last-child{margin-bottom:0!important}
+.acc h3{font:800 20px Fraunces,serif;margin:0}
+.acc form{display:grid;gap:12px}
+.acc label{font-size:13px;color:var(--mute);display:grid;gap:4px}
+.acc input{height:46px;border-radius:10px;border:1px solid var(--line);background:var(--card);padding:0 12px;font-size:16px}
+.btn{height:48px;border-radius:12px;border:0;background:var(--or);color:#fff;font-weight:600;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none}
+.btn.dark{background:var(--choc)}.btn.ghost{background:transparent;border:2px solid var(--line);color:var(--ink)}
+.err{color:#c0392b;font-size:14px;margin:0;min-height:1em}
+.demo{border:1px dashed var(--or);border-radius:12px;padding:12px;background:var(--or2);font-size:14px}
+.demo p{margin:0 0 8px}
+.demo button{display:block;width:100%;text-align:start;border:1px solid var(--line);background:var(--card);border-radius:10px;padding:8px 12px;margin-top:6px;cursor:pointer;font-size:14px}
+.demo button small{color:var(--mute)}
+.box{border:1px solid var(--line);border-radius:14px;padding:14px;background:var(--card)}
+.dl{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;margin:8px 0 0;font-size:15px}
+.dl dt{color:var(--mute)}.dl dd{margin:0;font-weight:500}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.stats div{background:var(--or2);border-radius:12px;padding:10px;text-align:center}
+.stats b{display:block;font:800 20px Fraunces,serif;color:var(--or);white-space:nowrap}
+.stats span{font-size:12px;color:var(--mute)}
+.ord{border:1px solid var(--line);border-radius:14px;background:var(--card);overflow:hidden}
+.ord summary{list-style:none;cursor:pointer;padding:12px 14px;display:grid;grid-template-columns:1fr auto;gap:2px 10px}
+.ord summary::-webkit-details-marker{display:none}
+.ord summary b{font-size:15px}.ord summary small{color:var(--mute)}
+.ord .amt{font-weight:700;white-space:nowrap;text-align:right}
+.chip{justify-self:end;font-size:12px;border-radius:10px;padding:2px 8px;font-weight:600;white-space:nowrap}
+.chip.ok{background:#e3f6ea;color:#17703a}.chip.pend{background:#fff1d6;color:#8a5a00}.chip.env{background:#e6efff;color:#2448a8}
+.ord ul{margin:0;padding:0 14px 4px 30px;font-size:14px}
+.ord li{margin:4px 0}
+.ord .row{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:10px 14px 14px}
+.ord .row .btn{height:42px;font-size:14px}
+.hello{display:flex;align-items:center;gap:12px}
+.hello i{font-style:normal;width:48px;height:48px;border-radius:50%;background:var(--or);color:#fff;display:grid;place-items:center;font:800 22px Fraunces,serif;flex:none}
+.hello p{margin:0;color:var(--mute);font-size:14px}
 .bagbtn.bump{animation:bump .4s}
 @keyframes bump{50%{transform:scale(1.12)}}
 .filters{background:var(--or2);border-bottom:1px solid var(--line)}
@@ -108,7 +144,7 @@ footer a{color:#fff}
 .soc{display:flex;gap:14px;flex-wrap:wrap}
 @media(max-width:700px){
  .top{flex-wrap:wrap}.search{order:3;flex-basis:100%;max-width:none}
- .brand p{display:none}.bagbtn{margin-inline-start:auto}.bagbtn span{display:none}
+ .brand{flex:1}.brand h1{font-size:21px}.logo{width:48px;height:48px}.logo img{width:44px;height:44px}.top{gap:10px}.bagbtn{padding:0 12px}.brand p{display:none}.bagbtn span,.userbtn span{display:none}.userbtn:not(.in){padding:0 12px}
  .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
  .body{padding:10px}.name{font-size:14px}.price b{font-size:19px}
  .seg select{margin-inline-start:0;flex-basis:100%}
@@ -123,6 +159,7 @@ footer a{color:#fff}
   <div class="brand"><h1>Crema y Pastel</h1><p>Insumos para panadería y pastelería · Ate, Lima</p></div>
   <label class="search"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
    <input id="q" type="search" placeholder="Buscar producto, sabor o código…" aria-label="Buscar producto"></label>
+  <button class="userbtn" id="userBtn" aria-label="Zona de clientes"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg><span>Ingresar</span></button>
   <button class="bagbtn" id="bagBtn" aria-label="Ver mi pedido"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M5 8h14l-1 12H6z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg><span>Mi pedido</span><b id="bagN">0</b></button>
  </div>
 </header>
@@ -177,6 +214,10 @@ footer a{color:#fff}
   <a class="send" id="send" target="_blank" rel="noopener" aria-disabled="true"><svg viewBox="0 0 24 24"><use href="#waIcon"/></svg>Enviar pedido por WhatsApp</a>
   <p class="note">Se abrirá WhatsApp con tu pedido listo para enviar al +51 941 064 819.</p>
  </div>
+</aside>
+<aside id="acct" aria-label="Zona de clientes" aria-hidden="true">
+ <div class="ah"><h2>Zona de clientes</h2><button class="x" id="acctClose" aria-label="Cerrar">×</button></div>
+ <div class="acc" id="accBody"></div>
 </aside>
 <div class="toast" id="toast" role="status"></div>
 
@@ -237,7 +278,7 @@ function msg(){
  let m=`Hola Crema y Pastel 👋, quiero hacer este pedido:\n\n${lines.join('\n')}\n\nTotal referencial: ${fmt(t)}\n`;
  const n=$('fName').value.trim(),d=$('fDir').value.trim(),c=$('fNote').value.trim();
  m+=`\nEntrega: ${ent}${ent==='Delivery'&&d?' — '+d:''}`;
- if(n)m+=`\nNombre: ${n}`;if(c)m+=`\nComentario: ${c}`;
+ if(n&&!(user&&n===user.biz))m+=`\nNombre: ${n}`;if(user){const u=user;m+=`\nCliente: ${u.biz} · ${u.name}${u.ruc?' · RUC '+u.ruc:''}`}if(c)m+=`\nComentario: ${c}`;
  return {m:m+'\n\n(Pedido desde el catálogo web)',t};
 }
 function renderBag(){
@@ -276,6 +317,7 @@ $('bagBtn').addEventListener('click',()=>openBag(true));
 $('send').addEventListener('click',()=>{
  if(!Object.keys(cart).length)return;
  // deja que el enlace abra WhatsApp y luego vacía el carrito
+ if(user)addOrder();
  setTimeout(()=>{cart={};save();render();renderBag();openBag(false);toast('¡Pedido enviado! Te responderemos por WhatsApp.')},400);
 });
 $('close').addEventListener('click',()=>openBag(false));
@@ -283,6 +325,74 @@ $('scrim').addEventListener('click',()=>openBag(false));
 document.addEventListener('keydown',e=>{if(e.key==='Escape')openBag(false)});
 document.querySelectorAll('.form input,.form textarea').forEach(i=>i.addEventListener('input',()=>{
  $('dirL').style.display=document.querySelector('input[name=ent]:checked').value==='Delivery'?'':'none';renderBag()}));
+
+/* ===== Zona de clientes (DEMO: clientes ficticios, todo queda en este celular) ===== */
+const DEMO=[
+ {email:'panaderia@demo.pe',pass:'demo123',biz:'Panadería Santa Rosa',name:'Rosa Quispe',ruc:'20601234567',phone:'987 654 321',addr:'Av. Próceres de la Independencia 1450',dist:'San Juan de Lurigancho',since:'Mar 2025',
+  orders:[{id:'CYP-1048',d:'2026-11-18',st:'pend',it:[[830,2],[839,1],[826,1]]},{id:'CYP-1031',d:'2026-11-04',st:'ok',it:[[830,2],[835,1],[819,2]]},{id:'CYP-1012',d:'2026-10-21',st:'ok',it:[[829,1],[821,2],[834,1]]},{id:'CYP-0987',d:'2026-10-02',st:'ok',it:[[736,3],[785,1]]}]},
+ {email:'pasteleria@demo.pe',pass:'demo123',biz:'Pastelería Dulce Tentación',name:'Carlos Huamán',ruc:'10456789012',phone:'956 112 334',addr:'Jr. Las Begonias 220',dist:'Ate',since:'Ago 2025',
+  orders:[{id:'CYP-1045',d:'2026-11-15',st:'ok',it:[[716,2],[717,2],[798,6],[786,10]]},{id:'CYP-1020',d:'2026-10-28',st:'ok',it:[[744,2],[787,10],[806,1]]},{id:'CYP-0991',d:'2026-10-06',st:'ok',it:[[732,1],[795,1],[815,5]]}]},
+ {email:'cafe@demo.pe',pass:'demo123',biz:'Café Aroma de Barranco',name:'Lucía Torres',ruc:'20609876543',phone:'934 778 200',addr:'Av. Grau 315',dist:'Barranco',since:'Oct 2026',
+  orders:[{id:'CYP-1039',d:'2026-11-10',st:'ok',it:[[753,4],[731,1],[740,1]]},{id:'CYP-1027',d:'2026-11-01',st:'ok',it:[[753,2],[751,1]]}]}
+];
+const ST={ok:['Entregado','ok'],pend:['En preparación','pend'],env:['Enviado por WhatsApp','env']};
+let user=null;
+const lsGet=(k,d)=>{try{return JSON.parse(localStorage.getItem(k))??d}catch(e){return d}};
+const lsSet=(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}};
+const extra=()=>lsGet('cyp-orders-'+user.email,[]);
+const allOrders=()=>[...extra(),...user.orders];
+const ordTotal=o=>o.it.reduce((s,[id,q])=>s+(byId[id]?byId[id].p*q:0),0);
+const fdate=s=>new Date(s+'T12:00:00').toLocaleDateString('es-PE',{day:'numeric',month:'short',year:'numeric'});
+function addOrder(){
+ const ex=extra(),n=1049+ex.length;
+ ex.unshift({id:'CYP-'+n,d:new Date().toISOString().slice(0,10),st:'env',it:Object.keys(cart).map(id=>[+id,cart[id]])});
+ lsSet('cyp-orders-'+user.email,ex);
+}
+function setUser(u){
+ user=u;lsSet('cyp-user',u?u.email:null);
+ const b=$('userBtn');b.classList.toggle('in',!!u);
+ b.innerHTML=u?`<i>${esc(u.biz[0])}</i><span>${esc(u.name.split(' ')[0])}</span>`:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg><span>Ingresar</span>';
+ if(u){$('fName').value=u.biz;$('fDir').value=u.addr+', '+u.dist}
+ renderAcc();renderBag();
+}
+function renderAcc(){
+ const B=$('accBody');
+ if(!user){B.innerHTML=`<p style="margin:0">Ingresa para ver tus datos y tu historial de compras.</p>
+  <form id="login" novalidate><label>Correo<input id="lEmail" type="email" autocomplete="username" required></label>
+  <label>Contraseña<input id="lPass" type="password" autocomplete="current-password" required></label>
+  <p class="err" id="lErr" role="alert"></p><button class="btn" type="submit">Ingresar</button></form>
+  <p style="margin:0;font-size:14px;color:var(--mute)">Las cuentas las crea Crema y Pastel. ¿Aún no tienes una? <a href="https://wa.me/${WA}?text=${encodeURIComponent('Hola, quiero una cuenta de cliente en la app de Crema y Pastel.')}" target="_blank" rel="noopener">Pídela por WhatsApp</a>.</p>
+  <div class="demo"><p><b>Modo demo:</b> clientes ficticios. Contraseña de todos: <b>demo123</b>. Toca uno para llenar el formulario.</p>
+  ${DEMO.map(u=>`<button type="button" data-e="${u.email}">${esc(u.biz)}<br><small>${u.email}</small></button>`).join('')}</div>`;return}
+ const os=allOrders(),tot=os.reduce((s,o)=>s+ordTotal(o),0);
+ B.innerHTML=`<div class="hello"><i>${esc(user.biz[0])}</i><div><h3>${esc(user.biz)}</h3><p>Cliente desde ${user.since}</p></div></div>
+ <div class="stats"><div><b>${os.length}</b><span>pedidos</span></div><div><b>${fmt(tot).replace('.00','')}</b><span>comprado</span></div><div><b>${fdate(os[0].d).replace(/ de \d{4}|\s\d{4}$/,'')}</b><span>último pedido</span></div></div>
+ <div class="box"><h3>Mis datos</h3><dl class="dl"><dt>Contacto</dt><dd>${esc(user.name)}</dd><dt>RUC</dt><dd>${user.ruc}</dd><dt>Teléfono</dt><dd>${user.phone}</dd><dt>Correo</dt><dd>${user.email}</dd><dt>Dirección</dt><dd>${esc(user.addr)}</dd><dt>Distrito</dt><dd>${esc(user.dist)}</dd></dl>
+ <p style="margin:10px 0 0;font-size:13px;color:var(--mute)">¿Cambió algún dato? <a href="https://wa.me/${WA}?text=${encodeURIComponent('Hola, soy '+user.biz+' y quiero actualizar mis datos.')}" target="_blank" rel="noopener">Avísanos por WhatsApp</a>.</p></div>
+ <h3>Historial de compras</h3>
+ ${os.map(o=>`<details class="ord" data-o="${o.id}"><summary><b>${o.id}</b><span class="chip ${ST[o.st][1]}">${ST[o.st][0]}</span><small>${fdate(o.d)} · ${(k=>k+(k===1?' producto':' productos'))(o.it.reduce((s,x)=>s+x[1],0))}</small><span class="amt">${fmt(ordTotal(o))}</span></summary>
+  <ul>${o.it.filter(([id])=>byId[id]).map(([id,q])=>`<li>${q} x ${esc(byId[id].n)} — ${fmt(byId[id].p*q)}</li>`).join('')}</ul>
+  <div class="row"><button class="btn dark" data-rep="${o.id}">Repetir pedido</button><a class="btn ghost" href="https://wa.me/${WA}?text=${encodeURIComponent('Hola, consulto por mi pedido '+o.id+' ('+user.biz+').')}" target="_blank" rel="noopener">Consultar</a></div></details>`).join('')}
+ <p style="margin:0;font-size:12px;color:var(--mute)">Montos calculados con los precios actuales del catálogo. Datos de demostración.</p>
+ <button class="btn ghost" id="logout" style="width:100%">Cerrar sesión</button>`;
+}
+function openAcct(o){if(o)renderAcc();$('acct').classList.toggle('on',o);$('scrim').classList.toggle('on',o||$('bag').classList.contains('on'));$('acct').setAttribute('aria-hidden',!o);if(o)$('acctClose').focus()}
+$('userBtn').addEventListener('click',()=>{openBag(false);openAcct(true)});
+$('acctClose').addEventListener('click',()=>openAcct(false));
+$('scrim').addEventListener('click',()=>openAcct(false));
+document.addEventListener('keydown',e=>{if(e.key==='Escape')openAcct(false)});
+$('accBody').addEventListener('click',e=>{
+ const d=e.target.closest('[data-e]');if(d){$('lEmail').value=d.dataset.e;$('lPass').value='demo123';$('lPass').focus();return}
+ if(e.target.closest('#logout')){setUser(null);$('fName').value='';$('fDir').value='';renderBag();toast('Sesión cerrada');return}
+ const r=e.target.closest('[data-rep]');if(r){const o=allOrders().find(x=>x.id===r.dataset.rep);
+  o.it.forEach(([id,q])=>{if(byId[id])cart[id]=(cart[id]||0)+q});save();render();renderBag();openAcct(false);openBag(true);toast('Pedido '+o.id+' agregado a tu carrito')}
+});
+$('accBody').addEventListener('submit',e=>{e.preventDefault();
+ const em=$('lEmail').value.trim().toLowerCase(),pw=$('lPass').value,u=DEMO.find(x=>x.email===em);
+ if(!u||u.pass!==pw){$('lErr').textContent='Correo o contraseña incorrectos.';return}
+ setUser(u);toast('¡Hola, '+u.name.split(' ')[0]+'!');
+});
+{const saved=lsGet('cyp-user',null);setUser(DEMO.find(x=>x.email===saved)||null)}
 
 renderChips();render();renderBag();
 }
